@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { UserIcon } from '@heroicons/react/24/solid'
+import { UserIcon } from '@heroicons/react/24/solid';
 
 const Header = () => {
   return (
@@ -32,7 +32,7 @@ const Header = () => {
             <li><Link to='/contact'>Contact</Link></li>
           </ul>
         </div>
-        <Link to='/' className="btn btn-ghost normal-case text-3xl">Rapid<span className="bg-orange-500 ml-2 p-2 rounded text-lg">Trip</span></Link>
+        <Link to='/' className="btn btn-ghost normal-case text-xl">Rapid<span className="bg-orange-300 ml-2 p-2 rounded text-xl text-slate-700 font-bold">Trip</span></Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
