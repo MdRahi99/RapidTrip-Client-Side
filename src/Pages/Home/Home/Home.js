@@ -6,11 +6,13 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import Choose from "../Choose";
 import Contact from "../../Contact/Contact";
+import Services from "../../Services/Services";
+import Blogs from "../../Blogs/Blogs";
 
 const Home = () => {
   return (
     <div>
-      <div className="card glass my-12 relative">
+      <div className="glass my-12 relative">
         <div className="opacity-50">
           <img className="object-cover h-96 w-full" src={img} alt="home-bg" />
         </div>
@@ -44,6 +46,8 @@ const Home = () => {
         </div>
       </div>
       <Choose></Choose>
+      <Services></Services>
+      <Blogs></Blogs>
       <Contact></Contact>
     </div>
   );
