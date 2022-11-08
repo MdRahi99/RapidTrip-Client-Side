@@ -6,11 +6,13 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import Choose from "../Choose";
 import Contact from "../../Contact/Contact";
-import Services from "../../Services/Services";
 import Blogs from "../../Blogs/Blogs";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+import ServiceCard from "../../Services/ServiceCard";
 
 const Home = () => {
+  const services = useLoaderData();
+
   return (
     <div>
       <div className="glass my-12 relative">
@@ -26,7 +28,10 @@ const Home = () => {
           </h2>
           <p className="text-xl mb-12">Work, Travel, Repeat.</p>
           <div className="">
-            <Link to='/services' className="px-4 py-2 bg-orange-400 hover:bg-orange-600 text-slate-900 font-bold rounded">
+            <Link
+              to="/services"
+              className="px-4 py-2 bg-orange-400 hover:bg-orange-600 text-slate-900 font-bold rounded"
+            >
               Explore
             </Link>
           </div>
@@ -46,8 +51,26 @@ const Home = () => {
           ></FontAwesomeIcon>
         </div>
       </div>
+
+      {/* Services Section Starts  */}
+      <div className="my-12">
+        <div className="text-center mb-4">
+          <h2 className="text-3xl font-semibold my-12">
+            Our provided services
+          </h2>
+        </div>
+        <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {services.slice(0, 3).map((service) => (
+            <ServiceCard key={service._id} service={service}></ServiceCard>
+          ))}
+        </div>
+        <button className="w-full mx-auto my-8">
+          <Link className="p-2 rounded text-center text-slate-800 text-xl font-semibold bg-orange-500 hover:bg-orange-600" to="/services">See All</Link>
+        </button>
+      </div>
+      {/* Services Section Ends  */}
+
       <Choose></Choose>
-      <Services></Services>
       <Blogs></Blogs>
       <Contact></Contact>
     </div>

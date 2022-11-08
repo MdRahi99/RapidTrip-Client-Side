@@ -6,6 +6,7 @@ import Register from "../../Pages/Login/Register";
 import Login from "../../Pages/Login/Login";
 import Blogs from "../../Pages/Blogs/Blogs";
 import img from "../../Assets/Image/error-page.jpg";
+import MoreDetails from "../../Pages/Services/MoreDetails/MoreDetails";
 
 const { createBrowserRouter, Link } = require("react-router-dom");
 
@@ -16,11 +17,18 @@ const router = createBrowserRouter([
       children: [
         {
             path: '/',
-            element: <Home></Home>
+            element: <Home></Home>,
+            loader: () => fetch('http://localhost:5000/services')
         },
         {
             path: '/services',
-            element: <Services></Services>
+            element: <Services></Services>,
+            loader: () => fetch('http://localhost:5000/services')
+        },
+        {
+            path: '/moreDetails/:id',
+            element: <MoreDetails></MoreDetails>,
+            loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
         },
         {
             path: '/blogs',
