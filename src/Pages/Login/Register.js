@@ -1,8 +1,31 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import img from "../../Assets/Image/register.jpg";
+import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 const Register = () => {
+
+  const {createUser} = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || '/';
+
+    const handleSignUp = event =>{
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        
+        createUser(email, password)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+            navigate(from, { replace: true });
+        })
+        .catch(err => console.error(err));
+    }
+
   return (
     <div>
       <section className="bg-gray-50 min-h-screen flex items-center justify-center">
@@ -10,7 +33,7 @@ const Register = () => {
           <div className="md:w-1/2 px-8 md:px-16">
             <h2 className="font-bold text-2xl text-[#002D74]">Register</h2>
 
-            <form action="" className="flex flex-col gap-4">
+            <form onSubmit={handleSignUp} className="flex flex-col gap-4">
               <div>
                 <input
                   className="p-2 mt-8 rounded-xl border w-full"

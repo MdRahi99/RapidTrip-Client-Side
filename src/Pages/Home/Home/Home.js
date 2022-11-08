@@ -8,6 +8,7 @@ import Choose from "../Choose";
 import Contact from "../../Contact/Contact";
 import Services from "../../Services/Services";
 import Blogs from "../../Blogs/Blogs";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -25,9 +26,9 @@ const Home = () => {
           </h2>
           <p className="text-xl mb-12">Work, Travel, Repeat.</p>
           <div className="">
-            <button className="px-4 py-2 shadow-transparent bg-orange-400 hover:bg-orange-600 text-slate-900 font-bold rounded">
+            <Link to='/services' className="px-4 py-2 bg-orange-400 hover:bg-orange-600 text-slate-900 font-bold rounded">
               Explore
-            </button>
+            </Link>
           </div>
         </div>
         <div class="lg:flex md:flex flex-col hidden gap-4 text-3xl absolute bottom-36 right-10 text-slate-100 opacity-70">
