@@ -5,8 +5,9 @@ import Contact from "../../Pages/Contact/Contact";
 import Register from "../../Pages/Login/Register";
 import Login from "../../Pages/Login/Login";
 import Blogs from "../../Pages/Blogs/Blogs";
+import img from "../../Assets/Image/error-page.jpg";
 
-const { createBrowserRouter } = require("react-router-dom");
+const { createBrowserRouter, Link } = require("react-router-dom");
 
 const router = createBrowserRouter([
     {
@@ -38,6 +39,13 @@ const router = createBrowserRouter([
             element: <Login></Login>
         },
       ]
+    },
+    {
+        path: '*',
+        element: <div className="text-center">
+            <img className="h-96 mx-auto mt-40 mb-6" src={img} alt="error-img" />
+            <Link to='/' className="px-20 py-2 bg-orange-500 text-slate-900 my-6 rounded font-bold hover:bg-orange-600">Back</Link>
+        </div>
     }
   ]);
 
