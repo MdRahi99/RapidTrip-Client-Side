@@ -9,9 +9,11 @@ import Contact from "../../Contact/Contact";
 import Blogs from "../../Blogs/Blogs";
 import { Link, useLoaderData } from "react-router-dom";
 import ServiceCard from "../../Services/ServiceCard";
+import Title from "../../../Hooks/Title";
 
 const Home = () => {
   const services = useLoaderData();
+  Title('Home');
 
   return (
     <div>

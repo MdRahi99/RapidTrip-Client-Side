@@ -3,9 +3,10 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import img from "../../Assets/Image/register.jpg";
 import { GoogleAuthProvider } from "firebase/auth";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
+import Title from "../../Hooks/Title";
 
 const Register = () => {
-
+  Title('Register');
   const {createUser,providerLogin} = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();

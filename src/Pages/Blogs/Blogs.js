@@ -3,8 +3,10 @@ import img1 from "../../Assets/Image/blog-1.png";
 import img2 from "../../Assets/Image/blog-2.jpg";
 import img3 from "../../Assets/Image/blog-3.png";
 import img4 from "../../Assets/Image/blog-4.png";
+import Title from "../../Hooks/Title";
 
 const Blogs = () => {
+  Title('Blogs');
   return (
     <div className="my-12">
       <h1 className="text-4xl text-center my-6">Blogs</h1>

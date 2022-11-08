@@ -3,8 +3,10 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
 import img from "../../Assets/Image/login.jpg";
+import Title from "../../Hooks/Title";
 
 const Login = () => {
+  Title('Login');
   const { login, providerLogin } = useContext(AuthContext);
   const [error, setError] = useState("");
   const location = useLocation();

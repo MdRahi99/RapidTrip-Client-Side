@@ -1,9 +1,11 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
+import Title from "../../../Hooks/Title";
 
 const MoreDetails = () => {
   const serviceDetails = useLoaderData();
-  const { _id, img, price, title, ratings, description } = serviceDetails;
+  const { img, price, title, ratings, description } = serviceDetails;
+  Title('Service Details');
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 my-12">
       <div className="card col-span-1 lg:col-span-2 card-compact w-full mx-auto">

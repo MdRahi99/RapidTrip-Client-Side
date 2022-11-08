@@ -67,8 +67,9 @@ const Header = () => {
       <div className="navbar-end">
         {
           user?.email?
-          <div>
+          <div className="flex gap-2 items-center">
             <UserIcon className="h-4 w-4 text-light ml-3"/>
+            <p>{user?.displayName}</p>
           </div>
           :
           <Link to='/login' className="btn">Login<UserIcon className="h-4 w-4 text-light ml-3"/></Link>

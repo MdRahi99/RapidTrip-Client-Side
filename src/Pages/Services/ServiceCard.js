@@ -9,6 +9,7 @@ const ServiceCard = ({ service }) => {
       <figure>
         <img className="h-52 w-full" src={img} alt="services" />
       </figure>
+      
       <div className="card-body">
         <h2 className="card-title">{title}</h2>
         <p className="text-2xl text-orange-600 font-semibold">
@@ -21,7 +22,9 @@ const ServiceCard = ({ service }) => {
             {description.slice(0, 100) + "..."}
             <div className="card-actions justify-center">
               <Link to={`/moreDetails/${_id}`}>
-                <button className="p-2 bg-orange-500 hover:bg-orange-600 rounded mt-6 text-slate-100 font-semibold">More Details</button>
+                <button className="p-2 bg-orange-500 hover:bg-orange-600 rounded mt-6 text-slate-100 font-semibold">
+                  More Details
+                </button>
               </Link>
             </div>
           </div>

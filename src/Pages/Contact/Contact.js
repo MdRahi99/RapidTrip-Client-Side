@@ -2,9 +2,10 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAndroid, faTelegram, faSquareWhatsapp} from "@fortawesome/free-brands-svg-icons";
 import img from '../../Assets/Image/contact.jpg';
-
+import Title from "../../Hooks/Title";
 
 const Contact = () => {
+  Title('Contact');
   return (
     <div className="my-12 grid grid-cols-1 lg:grid-cols-2 gap-2 justify-items-end items-center shadow-lg bg-neutral p-12 rounded text-slate-200">
       <div className="divide-y-4 divide-double divide-slate-400/[.60] shadow-lg bg-slate-700 p-8 rounded">
