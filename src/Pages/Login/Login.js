@@ -1,15 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
+import { GoogleAuthProvider } from "firebase/auth";
 import img from "../../Assets/Image/login.jpg";
 
 const Login = () => {
-
-  const { login } = useContext(AuthContext);
+  const { login, providerLogin } = useContext(AuthContext);
+  const [error, setError] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
 
-  const from = location.state?.from?.pathname || '/';
+  const googleProvider = new GoogleAuthProvider();
+
+  const from = location.state?.from?.pathname || "/";
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -21,9 +24,28 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        form.reset();
+        setError("");
         navigate(from, { replace: true });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.error(error);
+        setError(error.message);
+      });
+  };
+
+  const handleGoogleSignIn = () => {
+    providerLogin(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        setError("");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.error(error);
+        setError(error.message);
+      });
   };
 
   return (
@@ -32,6 +54,9 @@ const Login = () => {
         <div className="bg-gray-100 flex rounded-2xl shadow-lg max-w-3xl p-5 items-center">
           <div className="md:w-1/2 px-8 md:px-16">
             <h2 className="font-bold text-2xl text-[#002D74]">Login</h2>
+            <div>
+              <span>{error}</span>
+            </div>
             <p className="text-xs mt-4 text-[#002D74]">
               If you are already a member, easily log in
             </p>
@@ -73,7 +98,10 @@ const Login = () => {
               <hr className="border-gray-400" />
             </div>
 
-            <button className="bg-white border py-2 w-full rounded-xl mt-5 flex justify-center items-center text-sm hover:scale-105 duration-300 text-[#002D74]">
+            <button
+              onClick={handleGoogleSignIn}
+              className="bg-white border py-2 w-full rounded-xl mt-5 flex justify-center items-center text-sm hover:scale-105 duration-300 text-[#002D74]"
+            >
               <svg
                 className="mr-3"
                 xmlns="http://www.w3.org/2000/svg"

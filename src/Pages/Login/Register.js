@@ -1,13 +1,16 @@
 import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import img from "../../Assets/Image/register.jpg";
+import { GoogleAuthProvider } from "firebase/auth";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 const Register = () => {
 
-  const {createUser} = useContext(AuthContext);
+  const {createUser,providerLogin} = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
+
+  const googleProvider = new GoogleAuthProvider();
 
   const from = location.state?.from?.pathname || '/';
 
@@ -24,6 +27,16 @@ const Register = () => {
             navigate(from, { replace: true });
         })
         .catch(err => console.error(err));
+    }
+
+    const handleGoogleSignIn = () => {
+      providerLogin(googleProvider)
+          .then(result => {
+              const user = result.user;
+              console.log(user);
+              navigate(from, {replace: true});
+          })
+          .catch(error => console.error(error))
     }
 
   return (
@@ -82,7 +95,7 @@ const Register = () => {
               If you are already a member, easily log in
             </p>
 
-            <button className="bg-white border py-2 w-full rounded-xl mt-5 flex justify-center items-center text-sm hover:scale-105 duration-300 text-[#002D74]">
+            <button onClick={handleGoogleSignIn} className="bg-white border py-2 w-full rounded-xl mt-5 flex justify-center items-center text-sm hover:scale-105 duration-300 text-[#002D74]">
               <svg
                 className="mr-3"
                 xmlns="http://www.w3.org/2000/svg"
