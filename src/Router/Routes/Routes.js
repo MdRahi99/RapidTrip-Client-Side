@@ -1,12 +1,16 @@
 import Main from "../../Layout/Main";
 import Home from "../../Pages/Home/Home/Home";
 import Services from "../../Pages/Services/Services";
+import AddServices from "../../Pages/Services/AddServices/AddServices";
+import Reviews from "../../Pages/Reviews/Reviews";
 import Contact from "../../Pages/Contact/Contact";
 import Register from "../../Pages/Login/Register";
 import Login from "../../Pages/Login/Login";
 import Blogs from "../../Pages/Blogs/Blogs";
 import img from "../../Assets/Image/error-page.jpg";
 import MoreDetails from "../../Pages/Services/MoreDetails/MoreDetails";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import AddReviews from "../../Pages/Reviews/AddReviews";
 
 const { createBrowserRouter, Link } = require("react-router-dom");
 
@@ -29,6 +33,18 @@ const router = createBrowserRouter([
             path: '/moreDetails/:id',
             element: <MoreDetails></MoreDetails>,
             loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+        },
+        {
+            path: '/addServices',
+            element: <PrivateRoute><AddServices></AddServices></PrivateRoute>
+        },
+        {
+            path: '/reviews',
+            element: <PrivateRoute><Reviews></Reviews></PrivateRoute>
+        },
+        {
+            path: '/addReviews',
+            element: <PrivateRoute><AddReviews></AddReviews></PrivateRoute>
         },
         {
             path: '/blogs',

@@ -38,7 +38,7 @@ const Home = () => {
             </Link>
           </div>
         </div>
-        <div class="lg:flex md:flex flex-col hidden gap-4 text-3xl absolute bottom-36 right-10 text-slate-100 opacity-70">
+        <div className="lg:flex md:flex flex-col hidden gap-4 text-3xl absolute bottom-36 right-10 text-slate-100 opacity-70">
           <FontAwesomeIcon
             className="hover:text-slate-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
             icon={faFacebook}
