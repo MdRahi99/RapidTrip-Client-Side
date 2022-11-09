@@ -68,7 +68,7 @@ const Header = () => {
         {
           user?.email?
           <div className="flex gap-2 items-center">
-            <UserIcon className="h-4 w-4 text-light ml-3"/>
+            <img className="h-8" src={user?.photoURL} alt="user" />
             <p>{user?.displayName}</p>
           </div>
           :
