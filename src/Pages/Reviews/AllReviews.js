@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
-const AllReviews = ({ feedback, handleDelete }) => {
+const AllReviews = ({ feedback, handleDelete, handleFeedUpdate }) => {
   const { user } = useContext(AuthContext);
   const { _id, serviceName, userName, email, message } = feedback;
 
@@ -9,7 +10,7 @@ const AllReviews = ({ feedback, handleDelete }) => {
     <tr>
       <th>
         <label onClick={() => handleDelete(_id)}>
-          <button>X</button>
+          <button className="btn btn-ghost">X</button>
         </label>
       </th>
 
@@ -26,8 +27,15 @@ const AllReviews = ({ feedback, handleDelete }) => {
       </td>
 
       <td className="text-xl text-slate-200">{serviceName}</td>
-
       <td className="text-xl text-slate-200">{message}</td>
+
+      <th>
+        <label>
+          <Link to='/services'>
+            <button>update</button>
+          </Link>
+        </label>
+      </th>
     </tr>
   );
 };
