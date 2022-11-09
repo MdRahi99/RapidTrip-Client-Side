@@ -1,15 +1,14 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
-const AllReviews = ({ feedback }) => {
+const AllReviews = ({ feedback, handleDelete }) => {
   const { user } = useContext(AuthContext);
   const { _id, serviceName, userName, email, message } = feedback;
-  const [service, setService] = useState({});
 
   return (
     <tr>
       <th>
-        <label>
+        <label onClick={() => handleDelete(_id)}>
           <button>X</button>
         </label>
       </th>

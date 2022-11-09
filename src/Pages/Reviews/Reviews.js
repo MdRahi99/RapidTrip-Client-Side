@@ -14,6 +14,24 @@ const Reviews = () => {
       .then((data) => setFeedbacks(data));
   }, [user?.email]);
 
+  const handleDelete = id => {
+    const proceed = window.confirm("Are you sure, you want to cancel this feedback");
+    if(proceed){
+        fetch(`http://localhost:5000/feedbacks/${id}`, {
+            method: 'DELETE'
+        })
+        .then(res =>res.json())
+        .then(data => {
+            console.log(data);
+            if(data.deletedCount > 0){
+                alert('Deleted Successfully');
+                const remaining = feedbacks.filter(remove => remove._id !== id);
+                setFeedbacks(remaining);
+            }
+        })
+    }
+  }
+
   return (
     <div>
       <h1 className="text-3xl text-center text-slate-200 bg-neutral p-4 rounded my-12">
@@ -38,6 +56,7 @@ const Reviews = () => {
                 feedbacks.map(feedback => <AllReviews
                     key={feedback._id}
                     feedback={feedback}
+                    handleDelete={handleDelete}
                 ></AllReviews>)
             }
           </tbody>
