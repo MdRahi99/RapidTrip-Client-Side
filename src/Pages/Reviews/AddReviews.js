@@ -24,7 +24,7 @@ const AddReviews = () => {
       message,
     };
 
-    fetch('http://localhost:5000/feedbacks', {
+    fetch('https://rapid-trip-server.vercel.app/feedbacks', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

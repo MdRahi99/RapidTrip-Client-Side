@@ -23,7 +23,7 @@ const AddServices = () => {
       description,
       rating
     };
-    fetch("http://localhost:5000/services", {
+    fetch("https://rapid-trip-server.vercel.app/services", {
       method: "POST",
       headers: {
         "content-type": "application/json",

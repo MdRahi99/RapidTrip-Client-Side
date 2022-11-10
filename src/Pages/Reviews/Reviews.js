@@ -9,7 +9,7 @@ const Reviews = () => {
   const [feedbacks, setFeedbacks] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/feedbacks?email=${user?.email}`)
+    fetch(`https://rapid-trip-server.vercel.app/feedbacks?email=${user?.email}`)
       .then((res) => res.json(res))
       .then((data) => setFeedbacks(data));
   }, [user?.email]);
@@ -19,7 +19,7 @@ const Reviews = () => {
       "Are you sure, you want to cancel this feedback"
     );
     if (proceed) {
-      fetch(`http://localhost:5000/feedbacks/${id}`, {
+      fetch(`https://rapid-trip-server.vercel.app/feedbacks/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

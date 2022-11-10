@@ -23,17 +23,17 @@ const router = createBrowserRouter([
         {
             path: '/',
             element: <Home></Home>,
-            loader: () => fetch('http://localhost:5000/service')
+            loader: () => fetch('https://rapid-trip-server.vercel.app/service')
         },
         {
             path: '/services',
             element: <Services></Services>,
-            loader: () => fetch('http://localhost:5000/services')
+            loader: () => fetch('https://rapid-trip-server.vercel.app/services')
         },
         {
             path: '/moreDetails/:id',
             element: <MoreDetails></MoreDetails>,
-            loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+            loader: ({params}) => fetch(`https://rapid-trip-server.vercel.app/services/${params.id}`)
         },
         {
             path: '/addServices',

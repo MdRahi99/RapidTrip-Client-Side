@@ -8,7 +8,7 @@ const AddedReviews = () => {
   const [feedbacks, setAllFeedbacks] = useState([]);
   
   useEffect(() => {
-    fetch(`http://localhost:5000/feedbacks/${_id}`)
+    fetch(`https://rapid-trip-server.vercel.app/feedbacks/${_id}`)
       .then((res) => res.json())
       .then((data) => setAllFeedbacks(data));
   }, [_id]);
