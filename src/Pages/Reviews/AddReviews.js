@@ -11,12 +11,13 @@ const AddReviews = () => {
   const handlePlaceFeedback = event => {
     event.preventDefault();
     const form = event.target;
+    const id = form.id.value;
     const name = form.name.value;
     const email = form?.email.value || "Unregistered";
     const message = form.message.value;
 
     const feedback = {
-      service: _id,
+      id,
       serviceName: title,
       userName: name,
       email,
@@ -50,6 +51,15 @@ const AddReviews = () => {
         <form onSubmit={handlePlaceFeedback}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14">
             <div className="flex flex-col gap-3">
+              <input
+                type="password"
+                name="id"
+                placeholder="Enter your Name"
+                className="input input-bordered input-ghost w-full"
+                defaultValue={_id}
+                readOnly
+                required
+              />
               <input
                 type="text"
                 name="name"
