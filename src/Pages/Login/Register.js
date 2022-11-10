@@ -7,7 +7,7 @@ import Title from "../../Hooks/Title";
 
 const Register = () => {
   Title('Register');
-  const {createUser,providerLogin} = useContext(AuthContext);
+  const {createUser,providerLogin,updateUser} = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -18,16 +18,32 @@ const Register = () => {
     const handleSignUp = event =>{
         event.preventDefault();
         const form = event.target;
+        const name = form.name.value;
+        const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
+
+        console.log(name, photoURL, email, password);
         
         createUser(email, password)
         .then(result => {
             const user = result.user;
             console.log(user);
+            form.reset();
+            handleUpdateUser(name, photoURL);
             navigate(from, { replace: true });
         })
         .catch(err => console.error(err));
+    }
+
+    const handleUpdateUser =(name,photoURL)=>{
+      const profile = {
+        displayName: name,
+        photoURL: photoURL
+      }
+      updateUser(profile)
+      .then(()=>{})
+      .catch(error=>console.error(error));
     }
 
     const handleGoogleSignIn = () => {
@@ -54,12 +70,20 @@ const Register = () => {
                   type="name"
                   name="name"
                   placeholder="Name"
+                  required
+                />
+                <input
+                  className="p-2 mt-4 rounded-xl border w-full"
+                  type="text"
+                  name="photoURL"
+                  placeholder="Photo URL"
                 />
                 <input
                   className="p-2 mt-4 rounded-xl border w-full"
                   type="email"
                   name="email"
                   placeholder="Email"
+                  required
                 />
               </div>
               <div className="relative">
@@ -68,6 +92,7 @@ const Register = () => {
                   type="password"
                   name="password"
                   placeholder="Password"
+                  required
                 />
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
