@@ -11,6 +11,7 @@ import img from "../../Assets/Image/error-page.jpg";
 import MoreDetails from "../../Pages/Services/MoreDetails/MoreDetails";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import AddReviews from "../../Pages/Reviews/AddReviews";
+import UpdateReviews from "../../Pages/Reviews/UpdateReviews";
 
 const { createBrowserRouter, Link } = require("react-router-dom");
 
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
         {
             path: '/',
             element: <Home></Home>,
-            loader: () => fetch('http://localhost:5000/services')
+            loader: () => fetch('http://localhost:5000/service')
         },
         {
             path: '/services',
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
         {
             path: '/addReviews',
             element: <PrivateRoute><AddReviews></AddReviews></PrivateRoute>
+        },
+        {
+            path: '/update',
+            element: <PrivateRoute><UpdateReviews></UpdateReviews></PrivateRoute>
         },
         {
             path: '/blogs',

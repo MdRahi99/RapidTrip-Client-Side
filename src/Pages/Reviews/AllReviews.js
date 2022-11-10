@@ -31,7 +31,7 @@ const AllReviews = ({ feedback, handleDelete, handleFeedUpdate }) => {
 
       <th>
         <label>
-          <Link to='/services'>
+          <Link to='/update'>
             <button>update</button>
           </Link>
         </label>

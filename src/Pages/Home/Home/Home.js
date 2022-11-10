@@ -10,7 +10,6 @@ import Blogs from "../../Blogs/Blogs";
 import { Link, useLoaderData } from "react-router-dom";
 import ServiceCard from "../../Services/ServiceCard";
 import Title from "../../../Hooks/Title";
-import AddedServices from "../../Services/AddedServices";
 
 const Home = () => {
   const services = useLoaderData();
@@ -63,11 +62,10 @@ const Home = () => {
           </h2>
         </div>
         <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {services.slice(0, 3).map((service) => (
+          {services.map((service) => (
             <ServiceCard key={service._id} service={service}></ServiceCard>
           ))}
         </div>
-        <AddedServices></AddedServices>
         <button className="w-full mx-auto my-8">
           <Link className="p-2 rounded text-center text-slate-800 text-xl font-semibold bg-orange-500 hover:bg-orange-600" to="/services">See All</Link>
         </button>

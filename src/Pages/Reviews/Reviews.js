@@ -40,7 +40,15 @@ const Reviews = () => {
         You have {feedbacks.length} feedbacks
       </h1>
 
-      {user?.email ? (
+      {feedbacks.length < 1 ? 
+        
+          <div className="p-20 rounded shadow-lg bg-neutral">
+            <p className="text-3xl text-center text-slate-200 font-bold p-4">
+              No reviews were added
+            </p>
+          </div>
+        
+        :
         <div className="overflow-x-auto w-full flex flex-row gap-4">
           <table className="table w-full">
             <thead>
@@ -65,13 +73,7 @@ const Reviews = () => {
             </tbody>
           </table>
         </div>
-      ) : (
-        <div className="p-20 rounded shadow-lg bg-neutral">
-          <p className="text-3xl text-center text-slate-200 font-bold p-4">
-            No reviews were added
-          </p>
-        </div>
-      )}
+      }
     </div>
   );
 };
