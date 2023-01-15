@@ -53,13 +53,13 @@ const Reviews = () => {
           <table className="table w-full">
             <thead>
               <tr>
-                <th>
-                  <label>X</label>
-                </th>
                 <th>Name</th>
                 <th>Selected Service</th>
                 <th>Given FeedBack</th>
                 <th>Update</th>
+                <th>
+                  <label>Delete</label>
+                </th>
               </tr>
             </thead>
             <tbody>

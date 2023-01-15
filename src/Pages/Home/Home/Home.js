@@ -6,7 +6,6 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import Choose from "../Choose";
 import Contact from "../../Contact/Contact";
-import Blogs from "../../Blogs/Blogs";
 import { Link, useLoaderData } from "react-router-dom";
 import ServiceCard from "../../Services/ServiceCard";
 import Title from "../../../Hooks/Title";
@@ -75,7 +74,6 @@ const Home = () => {
       {/* Services Section Ends  */}
 
       <Choose></Choose>
-      <Blogs></Blogs>
       <Contact></Contact>
     </div>
   );

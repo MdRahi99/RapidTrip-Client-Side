@@ -69,6 +69,7 @@ const Login = () => {
                 type="email"
                 name="email"
                 placeholder="Email"
+                defaultValue="user@gmail.com"
               />
               <div className="relative">
                 <input
@@ -76,6 +77,7 @@ const Login = () => {
                   type="password"
                   name="password"
                   placeholder="Password"
+                  defaultValue="useruser"
                 />
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

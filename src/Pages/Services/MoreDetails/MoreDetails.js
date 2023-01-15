@@ -15,7 +15,7 @@ const MoreDetails = () => {
   return (
     <div>
       <div className="grid grid-cols-1 lg:grid-cols-12 my-12">
-        <div className="card col-span-1 lg:col-span-7 card-compact w-full mx-auto">
+        <div className="card col-span-1 lg:col-span-6 card-compact w-full mx-auto">
           <figure>
             <img className="h-96 w-full" src={img} alt="services" />
           </figure>
@@ -28,7 +28,7 @@ const MoreDetails = () => {
                 {description}
               </p>
             </div>
-            <div className="card-body shadow-lg bg-slate-700 p-20 rounded">
+            <div className="card-body shadow-lg bg-slate-700 p-2 rounded">
               <p className="text-4xl text-orange-600 font-semibold">
                 Price: ${price}
               </p>
@@ -36,7 +36,7 @@ const MoreDetails = () => {
             </div>
           </div>
         </div>
-        <div className="cols-4 col-span-1 lg:col-span-5 bg-slate-300 mx-4 rounded my-6 lg:my-0">
+        <div className="cols-4 col-span-1 lg:col-span-6 bg-slate-300 mx-4 rounded my-6 lg:my-0">
           <h1 className="text-4xl text-center bg-neutral p-4 rounded m-6">
             Feedbacks
           </h1>

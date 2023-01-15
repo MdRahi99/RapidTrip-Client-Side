@@ -8,12 +8,6 @@ const AllReviews = ({ feedback, handleDelete, handleFeedUpdate }) => {
 
   return (
     <tr>
-      <th>
-        <label onClick={() => handleDelete(_id)}>
-          <button className="btn btn-ghost">X</button>
-        </label>
-      </th>
-
       <td>
         <div className="flex items-center space-x-3">
           <div>
@@ -34,6 +28,11 @@ const AllReviews = ({ feedback, handleDelete, handleFeedUpdate }) => {
           <Link to='/update'>
             <button>update</button>
           </Link>
+        </label>
+      </th>
+      <th>
+        <label onClick={() => handleDelete(_id)}>
+          <button className="btn btn-ghost">X</button>
         </label>
       </th>
     </tr>

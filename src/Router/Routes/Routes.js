@@ -6,7 +6,6 @@ import Reviews from "../../Pages/Reviews/Reviews";
 import Contact from "../../Pages/Contact/Contact";
 import Register from "../../Pages/Login/Register";
 import Login from "../../Pages/Login/Login";
-import Blogs from "../../Pages/Blogs/Blogs";
 import img from "../../Assets/Image/error-page.jpg";
 import MoreDetails from "../../Pages/Services/MoreDetails/MoreDetails";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
@@ -50,10 +49,6 @@ const router = createBrowserRouter([
         {
             path: '/update',
             element: <PrivateRoute><UpdateReviews></UpdateReviews></PrivateRoute>
-        },
-        {
-            path: '/blogs',
-            element: <Blogs></Blogs>
         },
         {
             path: '/contact',
